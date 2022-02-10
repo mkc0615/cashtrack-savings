@@ -42,6 +42,10 @@ public class Stock {
         this.inputDate = LocalDate.now();
     }
 
+    public void updateStockVolume(int volume){
+        this.volume = volume;
+    }
+
     public void updateSellDate(String sellDateStr){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.sellDate = LocalDate.parse(sellDateStr, dtf);
