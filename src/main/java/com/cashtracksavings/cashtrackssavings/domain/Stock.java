@@ -42,6 +42,10 @@ public class Stock {
         this.inputDate = LocalDate.now();
     }
 
+    public void updateStockPrice(int price){
+        this.price = price;
+    }
+
     public void updateStockVolume(int volume){
         this.volume = volume;
     }
