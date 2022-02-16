@@ -34,4 +34,10 @@ public class SavingRepository {
         return saveAccount.getUserNo();
     }
 
+    // Saving delete
+    public int deleteSaving(SaveAccount saveAccount){
+        int resultInt = saveAccount.getAccNo();
+        em.remove(saveAccount);
+        return resultInt;
+    }
 }

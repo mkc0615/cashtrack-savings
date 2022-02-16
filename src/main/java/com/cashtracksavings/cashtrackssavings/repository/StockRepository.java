@@ -33,4 +33,11 @@ public class StockRepository {
         return stock.getUserNo();
     }
 
+    // Stock delete
+    public int deleteStock(Stock stock){
+        int resultInt = stock.getStockNo();
+        em.remove(stock);
+        return resultInt;
+    }
+
 }
