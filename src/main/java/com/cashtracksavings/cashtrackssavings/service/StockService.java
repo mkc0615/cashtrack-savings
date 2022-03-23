@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,5 +38,21 @@ public class StockService {
         String sellDate = "2022-01-30";
         modifyCase.updateSellDate(sellDate);
         return stockRepository.insertStock(modifyCase);
+    }
+
+    public List<Integer> findStockRate(List<Stock> stockList){
+
+        List<Integer> resultList = new ArrayList<>();
+
+        int i = 0;
+        while(i < stockList.size()){
+            if(i > 0) {
+                int thisDiff = stockList.get(i).getPrice() - stockList.get(i-1).getPrice();
+                resultList.add(thisDiff);
+            }
+            i++;
+        }
+
+        return resultList;
     }
 }
