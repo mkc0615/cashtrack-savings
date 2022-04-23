@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor
-public class SaveAccount {
+public class SaveAccount extends BaseEntity{
 
     @Id
     @GeneratedValue
@@ -24,13 +24,11 @@ public class SaveAccount {
     private String bankName;
     private int amount;
     private double rate;
-    private LocalDate inputDate;
 
     // 내부 생성자 메서드
-    public void createSaveAccEntry(String bankName,
-                                   int amount,
-                                   double rate
-                                    ){
+    public void createSaveAccEntry(
+            String bankName, int amount, double rate
+    ){
         this.bankName=bankName;
         this.amount=amount;
         this.rate = rate;

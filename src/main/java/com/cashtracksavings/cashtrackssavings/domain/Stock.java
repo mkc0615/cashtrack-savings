@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-@NoArgsConstructor
 @Getter
-public class Stock {
+@NoArgsConstructor
+public class Stock extends BaseEntity{
 
     @Id
     @GeneratedValue
@@ -24,7 +24,6 @@ public class Stock {
     private int volume;
     private LocalDate buyDate;
     private LocalDate sellDate;
-    private LocalDate inputDate;
 
     // 내부 생성자 메서드
     public void createStockEntry(String market,
@@ -39,7 +38,6 @@ public class Stock {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         this.buyDate = LocalDate.parse(buyDateStr, dtf);
-        this.inputDate = LocalDate.now();
     }
 
     public void updateStockPrice(int price){
